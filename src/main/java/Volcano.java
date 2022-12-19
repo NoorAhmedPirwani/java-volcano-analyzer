@@ -116,4 +116,12 @@ public class Volcano {
     public void setDEATHS(String DEATHS) {
         this.DEATHS = DEATHS;
     }
+
+    public Object volcano() {
+        return null;
+    }
+
+    public Object Volcano() {
+        return null;
+    }
 }
