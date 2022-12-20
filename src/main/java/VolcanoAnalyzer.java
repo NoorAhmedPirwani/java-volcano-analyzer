@@ -3,9 +3,8 @@ import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -43,16 +42,20 @@ public class VolcanoAnalyzer {
 
     // public List<Volcano> mostDeadly() {
 
-    //     return volcanos.stream().sorted(Comparator.comparing((Volcano()::getDEATHS))).limit(1).collect(Collectors.toList());
+    //     return volcanos.stream().sorted(Comparator.comparing((Volcano::getDEATHS))).limit(1).collect(Collectors.toList());
 
-    // }
+    public double causedTsunami() {
+        return volcanos.stream().filter(tsuPercentage -> tsuPercentage.getTsu().equals("tsu")).count() * 100 / volcanos.size();
+    }
 
-    
+    public String mostCommonType() {     
+        
+        return volcanos.stream().collect(Collectors.collectingAndThen
+        (Collectors.groupingBy(Volcano::getType, Collectors.counting()),counted -> counted.entrySet()
+        .stream().max(Map.Entry.comparingByValue()).get().getKey()));        
+                        
 
-
-    
-    
-    
+     }    
     
     //add methods here to meet the requirements in README.md
 

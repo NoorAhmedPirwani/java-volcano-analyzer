@@ -37,7 +37,7 @@ Use java streams and any other higher-order functions to analyze the data in the
 05. Return the most common type of volcano in the set.
 06. Return the number of eruptions when supplied a country as an argument.
 07. Return the average elevation of all eruptions.
-8. Return an array of types of volcanoes.
+08. Return an array of types of volcanoes.
 09. Return the percentage of eruptions that occurred in the Northern Hemisphere.
 10. Return the names of eruptions that occurred after 1800, that did NOT cause a tsunami, happened in the Southern Hemisphere, and had a VEI of 5.
 11. Return the names of eruptions that occurred at or above an elevation passed in as an argument.
