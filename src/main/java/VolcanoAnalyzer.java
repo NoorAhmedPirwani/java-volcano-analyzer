@@ -62,6 +62,10 @@ public class VolcanoAnalyzer {
         return volcanos.stream().filter(i -> i.getCountry().equals(country)).collect(Collectors.toList()).size();
     }
 
+    //07. Return the average elevation of all eruptions.
+    public double averageElevation(){
+        return volcanos.stream().mapToDouble(Volcano::getElevation).sum() / volcanos.size();
+    }
     
     //add methods here to meet the requirements in README.md
 
