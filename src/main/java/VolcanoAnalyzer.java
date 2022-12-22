@@ -66,6 +66,11 @@ public class VolcanoAnalyzer {
     public double averageElevation(){
         return volcanos.stream().mapToDouble(Volcano::getElevation).sum() / volcanos.size();
     }
+
+    //08. Return an array of types of volcanoes.
+    public String[] volcanoTypes(){
+        return volcanos.stream().map(Volcano::getType).distinct().collect(Collectors.toList()).toArray(new String[0]);
+    }
     
     //add methods here to meet the requirements in README.md
 
