@@ -42,10 +42,7 @@ public class VolcanoAnalyzer {
         return volcanos.stream().filter(high -> high.getVEI() >= 6).map(high->high.getName()).collect(Collectors.toList());
     }
 
-    //03. Return the eruption with the highest number of recorded deaths.
-    // public List<Volcano> mostDeadly() {
-    //     return volcanos.stream().sorted(Comparator.comparing((Volcano::getDEATHS))).limit(1).collect(Collectors.toList());
-
+    
     //04. Return the percentage of eruptions that caused tsunamis.
     public double causedTsunami() {
         return volcanos.stream().filter(tsuPercentage -> tsuPercentage.getTsu().equals("tsu")).count() * 100 / volcanos.size();
@@ -72,6 +69,24 @@ public class VolcanoAnalyzer {
         return volcanos.stream().map(Volcano::getType).distinct().collect(Collectors.toList()).toArray(new String[0]);
     }
     
+    //09. Return the percentage of eruptions that occurred in the Northern Hemisphere
+    public double percentNorth(){
+        return volcanos.stream().filter(i -> i.getLatitude()>0).count() *100d / volcanos.size();
+    }
+
+    //10. Return the names of eruptions that occurred after 1800, that did NOT cause a tsunami, 
+    //happened in the Southern Hemisphere, and had a VEI of 5.
+    public String[] manyFilters(){
+        return volcanos.stream().filter(i -> i.getYear() > 1800 &&
+        i.getTsu().equals("") && i.getLatitude() < 0 && i.getVEI() == 5)
+        .map(Volcano::getName).collect(Collectors.toList()).toArray(new String[0]);
+    }
+
+    //11. Return the names of eruptions that occurred at or above an elevation passed in as an argument.
+    public String[] elevatedVolcanoes(int elevate){
+        return volcanos.stream().filter(i -> i.getElevation() >= elevate).map(Volcano::getName).collect(Collectors.toList()).toArray(new String[0]);
+    }
+
     //add methods here to meet the requirements in README.md
 
 }
